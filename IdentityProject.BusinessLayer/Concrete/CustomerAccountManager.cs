@@ -31,6 +31,7 @@ namespace IdentityProject.BusinessLayer.Concrete
         public List<CustomerAccount> TGetList()
         {
             return _customerAccountDal.GetList();
+        }
 
         public void TInsert(CustomerAccount t)
         {
