@@ -28,7 +28,7 @@ namespace IdentityProject.DataAccessLayer.Concrete
             builder.Entity<CustomerAccountProcess>()
                 .HasOne(x => x.ReceiverCustomer)
                 .WithMany(y => y.CustomerReceiver)
-                .HasForeignKey(z => z.ReveiverID)
+                .HasForeignKey(z => z.ReceiverID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             base.OnModelCreating(builder);
