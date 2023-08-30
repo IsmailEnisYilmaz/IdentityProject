@@ -67,6 +67,26 @@ namespace IdentityProject.PresentationLayer.Controllers
                 ViewBag.GbpToTry = body3;
             }
             #endregion
+
+            #region
+            var client4 = new HttpClient();
+            var request4 = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://currency-exchange.p.rapidapi.com/exchange?from=USD&to=EUR&q=1.0"),
+                Headers =
+    {
+        { "X-RapidAPI-Key", "e5284ce5e0mshbb08dac8c8d695dp1b09cejsn9970bd3a1406" },
+        { "X-RapidAPI-Host", "currency-exchange.p.rapidapi.com" },
+    },
+            };
+            using (var response4 = await client4.SendAsync(request4))
+            {
+                response4.EnsureSuccessStatusCode();
+                var body4 = await response4.Content.ReadAsStringAsync();
+                ViewBag.UsdToEur = body4;
+            }
+            #endregion
             return View();
         }
     }
